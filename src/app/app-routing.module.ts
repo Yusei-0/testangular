@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from '@/guards';
+import { PrivatesRoutes, PublicRoutes } from '@/models';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: PublicRoutes.HOME,
     pathMatch: 'full',
   },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomeModule),
+    path: PublicRoutes.HOME,
+    loadChildren: () => import('./pages/home/').then((m) => m.HomeModule),
   },
   {
-    path: 'admin',
-    loadChildren: () =>
-      import('./pages/admin/admin.module').then((m) => m.AdminModule),
+    path: PrivatesRoutes.ADMIN,
+    loadChildren: () => import('./pages/admin/').then((m) => m.AdminModule),
+    canActivate: [authGuard],
   },
   {
-    path: 'login',
-    loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
+    path: PublicRoutes.LOGIN,
+    loadChildren: () => import('./pages/login/').then((m) => m.LoginModule),
   },
 ];
 
