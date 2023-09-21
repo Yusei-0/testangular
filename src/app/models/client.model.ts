@@ -91,5 +91,3 @@ export const mockClients: ClientModel[] = [
     folio: 'VWX234',
   },
 ];
-
-console.log(mockClients);

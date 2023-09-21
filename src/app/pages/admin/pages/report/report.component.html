@@ -1,6 +1,10 @@
 <div class="container">
-  <h1>Reportes</h1>
-  <form [formGroup]="form" (submit)="onSubmit()">
-    <file-input [accept]="'.csv'" (fileCharge)="onFileChange($event)" ></file-input>
-  </form>
+    <section>
+      <h1>Reportes</h1>
+      <file-input [accept]="'.csv'" (fileCharge)="onFileChange($event)" ></file-input>
+    </section>
+
+    <section>
+      <client-table [clientData]="clients"></client-table>
+    </section>
 </div>

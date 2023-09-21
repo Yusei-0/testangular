@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [],
@@ -17,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   exports: [
     NgxMatFileInputModule,
@@ -25,6 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
 })
 export class MaterialModule {}
