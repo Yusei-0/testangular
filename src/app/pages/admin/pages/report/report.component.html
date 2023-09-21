@@ -1,1 +1,6 @@
-<p>report works!</p>
+<div class="container">
+  <h1>Reportes</h1>
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <file-input [accept]="'.csv'" (fileCharge)="onFileChange($event)" ></file-input>
+  </form>
+</div>

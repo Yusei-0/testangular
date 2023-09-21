@@ -5,5 +5,6 @@ export enum PublicRoutes {
 
 export enum PrivatesRoutes {
   'ADMIN' = 'admin',
-  'ADMIN_REPORTS' = 'admin/reports',
+  'ADMIN_REPORTS' = 'reports',
+  'ADMIN_FEED' = 'feed',
 }

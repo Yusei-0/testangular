@@ -1,0 +1,7 @@
+<div class="file-input-container">
+  <input type="file" #fileInput class="file-input"(change)="onFileChange($event)" [accept]="accept" class="file-input">
+  <label class="file-label" for="file-input" (click)="fileInput.click()">
+    <span class="file-text">{{filename ||'Seleccionar archivo'}}</span>
+    <mat-icon class="file-icon">attach_file</mat-icon>
+  </label>
+</div>

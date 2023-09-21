@@ -1,0 +1,9 @@
+fecha,cliente,cuenta,monto,moneda,estatus,clienteAsociado,folio
+"2022-01-01T00:00:00.000Z","Cliente 1","123456789",1000,"USD","Activo","Cliente Asociado 1","ABC123"
+"2022-01-01T00:00:00.000Z","Cliente 2","987654321",2000,"EUR","Inactivo","Cliente Asociado 2","DEF456"
+"2022-01-01T00:00:00.000Z","Cliente 3","567890123",1500,"GBP","Activo","Cliente Asociado 3","GHI789"
+"2022-01-01T00:00:00.000Z","Cliente 4","321098765",3000,"CAD","Activo","Cliente Asociado 4","JKL012"
+"2022-01-01T00:00:00.000Z","Cliente 5","654321098",2500,"AUD","Inactivo","Cliente Asociado 5","MNO345"
+"2022-01-01T00:00:00.000Z","Cliente 6","901234567",1800,"JPY","Activo","Cliente Asociado 6","PQR678"
+"2022-01-01T00:00:00.000Z","Cliente 7","345678901",2200,"CHF","Inactivo","Cliente Asociado 7","STU901"
+"2022-01-01T00:00:00.000Z","Cliente 8","789012345",2800,"MXN","Activo","Cliente Asociado 8","VWX234"

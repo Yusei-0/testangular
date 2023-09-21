@@ -51,7 +51,7 @@ export class AuthService {
     }
 
     return this.http
-      .post<any>(`${this.apiUrl}/api/auth/refresh`, { refreshToken })
+      .post<any>(`${this.apiUrl}/api/login/refresh`, { refreshToken })
       .pipe(
         map((response) => {
           const accessToken = response.accessToken;
