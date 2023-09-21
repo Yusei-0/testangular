@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, retry } from 'rxjs';
+import { Observable, catchError, map, of, retry } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { httpErrorFunction } from '@/utils/http-error-function';
 import { AuthModel } from '@/models';
@@ -42,5 +42,26 @@ export class AuthService {
   saveTokens(accessToken: string, refreshToken: string): void {
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
+  }
+
+  refreshToken(): Observable<any> {
+    const refreshToken = this.getRefreshToken();
+    if (!refreshToken) {
+      return of(null);
+    }
+
+    return this.http
+      .post<any>(`${this.apiUrl}/api/auth/refresh`, { refreshToken })
+      .pipe(
+        map((response) => {
+          const accessToken = response.accessToken;
+          const newRefreshToken = response.refreshToken;
+          return { accessToken, refreshToken: newRefreshToken };
+        }),
+        catchError((error) => {
+          // Manejar errores de renovación de tokens
+          return of(null);
+        })
+      );
   }
 }
