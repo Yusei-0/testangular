@@ -9,7 +9,7 @@ export const httpErrorFunction = (error: HttpErrorResponse) => {
     return throwError(() => 'No existe el demo');
   }
   if (error.status === HttpStatusCode.Unauthorized) {
-    return throwError(() => 'No estas permitido');
+    return throwError(() => 'No estas Autorizado');
   }
   if (error.status === HttpStatusCode.InternalServerError) {
     return throwError(() => 'El servidor está teniendo problemas');

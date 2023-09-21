@@ -6,6 +6,22 @@ const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'feed',
+        pathMatch: 'full',
+      },
+      {
+        path: 'feed',
+        loadChildren: () => import('./pages/feed').then((m) => m.FeedModule),
+      },
+      {
+        path: 'report',
+        loadChildren: () =>
+          import('./pages/report').then((m) => m.ReportModule),
+      },
+    ],
   },
 ];
 
