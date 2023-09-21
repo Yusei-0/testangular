@@ -48,10 +48,6 @@ export class ClientTableComponent implements OnChanges {
     this.dataSource.sort = this.sort;
   }
 
-  ngAfterViewInit() {
-    this.refreshDataSource();
-  }
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
