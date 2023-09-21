@@ -1,7 +1,7 @@
 import { ClientModel } from '@/models';
 import { Component, OnInit, inject } from '@angular/core';
 import { parseCSVString } from '@/utils';
-import { ClientDataService } from '../../state/client-data.service';
+import { ClientDataService } from '../../../../state/client-data.service';
 
 @Component({
   selector: 'report',

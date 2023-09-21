@@ -4,6 +4,7 @@ import { Observable, catchError, map, of, retry } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { httpErrorFunction } from '@/utils/http-error-function';
 import { AuthModel } from '@/models';
+import { ClientDataService } from '@/state/client-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { AuthModel } from '@/models';
 export class AuthService {
   apiUrl = environment.apiUrl;
   http = inject(HttpClient);
+  clientsData = inject(ClientDataService);
 
   login(username: string, password: string): Observable<any> {
     const credentials = {
@@ -25,6 +27,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
+    this.clientsData.refreshClients();
   }
 
   isLoggedIn(): boolean {

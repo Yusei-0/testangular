@@ -1,9 +1,9 @@
 import { ClientModel } from '@/models';
 import { Injectable } from '@angular/core';
-import { AdminModule } from '../admin.module';
+import { AdminModule } from '../pages/admin/admin.module';
 
 @Injectable({
-  providedIn: AdminModule,
+  providedIn: 'root',
 })
 export class ClientDataService {
   private clientsData: ClientModel[] = [];
@@ -19,5 +19,9 @@ export class ClientDataService {
 
   setClient(clients: ClientModel[]) {
     this.clientsData = clients;
+  }
+
+  refreshClients() {
+    this.clientsData = [];
   }
 }
