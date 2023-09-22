@@ -1,0 +1,7 @@
+{
+  "/http://saccsa-dev-oracledb.eastus.cloudapp.azure.com:90/api": {
+    "target": "http://saccsa-dev-oracledb.eastus.cloudapp.azure.com:90/api",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.development';
 import { httpErrorFunction } from '@/utils/http-error-function';
 import { AuthModel } from '@/models';
 import { ClientDataService } from '@/state/client-data.service';
+import { UserStateService } from '@/state/user-state.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +14,16 @@ export class AuthService {
   apiUrl = environment.apiUrl;
   http = inject(HttpClient);
   clientsData = inject(ClientDataService);
+  userState = inject(UserStateService);
 
   login(username: string, password: string): Observable<any> {
     const credentials = {
       username: username,
       password: password,
     };
+
+    if (credentials.username)
+      this.userState.user.username = credentials.username;
     return this.http
       .post<AuthModel>(`${this.apiUrl}/login`, credentials)
       .pipe(retry(3), catchError(httpErrorFunction));

@@ -14,6 +14,8 @@ export class LoginComponent {
   router = inject(Router);
   authServices = inject(AuthService);
 
+  loading = false;
+
   loginForm: FormGroup = this.formBuilder.group({
     username: ['', [Validators.required]],
     password: ['', Validators.required],
@@ -27,19 +29,27 @@ export class LoginComponent {
     }
     let username = this.loginForm.get('username')!.value || '';
     let password = this.loginForm.get('password')!.value || '';
-    username = 'testangular';
-    password = 'L@as.W0rd3p9o1';
+
     console.log(`Nombre de Usuario: ${username}`);
     console.log(`Contraseña: ${password}`);
 
-    this.authServices
-      .login(username, password)
-      .subscribe((response: AuthModel) => {
+    username = 'testangular';
+    password = 'L@as.W0rd3p9o1';
+
+    this.loading = true;
+    this.authServices.login(username, password).subscribe(
+      (response: AuthModel) => {
         console.log(response);
         const { accessToken, refreshToken } = response;
         this.authServices.saveTokens(accessToken, refreshToken);
         this.router.navigateByUrl('admin');
-      });
+        this.loading = false;
+      },
+      (error) => {
+        this.loading = false;
+        console.error(error);
+      }
+    );
   }
 
   onCancel() {

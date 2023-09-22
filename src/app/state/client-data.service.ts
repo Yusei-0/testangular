@@ -1,6 +1,5 @@
 import { ClientModel } from '@/models';
 import { Injectable } from '@angular/core';
-import { AdminModule } from '../pages/admin/admin.module';
 
 @Injectable({
   providedIn: 'root',

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ReporterService } from './reporter.service';
+import { UserStateService } from './user-state.service';
 
-describe('FileSenderService', () => {
-  let service: ReporterService;
+describe('UserStateService', () => {
+  let service: UserStateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ReporterService);
+    service = TestBed.inject(UserStateService);
   });
 
   it('should be created', () => {
